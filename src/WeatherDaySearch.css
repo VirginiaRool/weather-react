@@ -1,0 +1,94 @@
+.Weather .container.container-weather {
+  max-width: 410px;
+  min-width: 260px;
+  margin: 15px auto;
+  padding: 15px;
+  border: 1px solid #a4a1e2;
+  border-radius: 10px;
+  background-color: #a4a1e2;
+  font-family: "Roboto", sans-serif;
+  color: #362a67;
+}
+
+.Weather .cityAndCountry {
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.Weather li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Weather li::first-letter {
+  text-transform: capitalize;
+}
+
+.Weather .city-name {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.Weather ul.today-data {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0;
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.Weather .today-icon {
+  display: block;
+  margin: 0 auto;
+  max-width: 50%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.Weather .today-temperature {
+  margin: 0px;
+}
+
+.Weather .tempNumber {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.Weather .tempUnit a,
+.tempUnitDivision {
+  font-size: 24px;
+  text-decoration: none;
+  color: grey;
+  position: relative;
+  top: -24px;
+}
+
+.Weather .tempUnit .active {
+  cursor: default;
+  color: #362a67;
+  font-weight: bold;
+}
+
+.Weather .tempUnit a:hover {
+  color: #362a67;
+  text-decoration: none;
+}
+
+.Weather ul.today-description {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 0;
+  font-weight: 500;
+}
+
+.Weather .footer a,
+.footer {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.Weather .footer a {
+  color: #962071;
+}

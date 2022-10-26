@@ -54,7 +54,7 @@ export default function WeatherDaySearch() {
       city: response.data.name,
       country: response.data.sys.country,
       date: new Date(response.data.dt * 1000).toLocaleDateString(
-        undefined,
+        "EN-US",
         dateOptions
       ),
       description: response.data.weather[0].description,
@@ -117,7 +117,9 @@ export default function WeatherDaySearch() {
 
           <ul className="today-data">
             <li className="date">{weather.date}</li>
-            <li className="description">{weather.description}</li>
+            <li className="description">
+              <strong className="uppercase">{weather.description}</strong>
+            </li>
             <li>
               <img
                 className="today-icon"

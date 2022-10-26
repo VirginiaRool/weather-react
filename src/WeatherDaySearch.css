@@ -10,6 +10,11 @@
   color: #362a67;
 }
 
+.Weather .uppercase {
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
 .Weather .cityAndCountry {
   font-weight: bold;
   font-size: 30px;
@@ -43,8 +48,8 @@
   display: block;
   margin: 0 auto;
   max-width: 50%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 15px;
 }
 
 .Weather .today-temperature {
@@ -83,10 +88,10 @@
   font-weight: 500;
 }
 
-.Weather .footer a,
-.footer {
+.Weather .footer {
   font-size: 13px;
   font-weight: 500;
+  padding-top: 15px;
 }
 
 .Weather .footer a {

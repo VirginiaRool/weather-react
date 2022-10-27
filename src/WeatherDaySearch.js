@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./WeatherDaySearch.css";
+import WeatherTemperature from "./WeatherTemperature";
+import axios from "axios";
 
 import brokenClouds from "./images/brokenClouds.png";
 import fewClouds from "./images/fewClouds.png";
@@ -11,8 +13,6 @@ import showerRainDrizzle from "./images/showerRain-drizzle.png";
 import snow from "./images/snow.png";
 import sun from "./images/sun.png";
 import thunderstorm from "./images/thunderstorm.png";
-
-import axios from "axios";
 
 export default function WeatherDaySearch() {
   const [city, setCity] = useState("");
@@ -58,9 +58,9 @@ export default function WeatherDaySearch() {
         dateOptions
       ),
       description: response.data.weather[0].description,
-      temperature: response.data.main.temp,
-      minTemp: response.data.main.temp_min,
-      maxTemp: response.data.main.temp_max,
+      temperature: Math.round(response.data.main.temp),
+      minTemp: Math.round(response.data.main.temp_min),
+      maxTemp: Math.round(response.data.main.temp_max),
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
@@ -73,7 +73,6 @@ export default function WeatherDaySearch() {
     let units = `metric`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(displayWeather);
-    console.log(apiUrl);
   }
 
   function updateCity(event) {
@@ -129,18 +128,7 @@ export default function WeatherDaySearch() {
             </li>
           </ul>
           <div className="today-temperature">
-            <span className="tempNumber">{weather.temperature}</span>
-            <span className="tempUnit">
-              {" "}
-              <a href="/" className="active">
-                °C
-              </a>
-            </span>
-            <span className="tempUnitDivision"> | </span>
-            <span className="tempUnit">
-              {" "}
-              <a href="/">°F</a>
-            </span>
+            <WeatherTemperature celsius={weather.temperature} />
           </div>
           <ul className="today-description">
             <li>

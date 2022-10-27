@@ -21,8 +21,7 @@ export default function WeatherDaySearch() {
 
   let dateOptions = {
     weekday: "long",
-    year: "numeric",
-    month: "long",
+    month: "short",
     day: "numeric",
   };
 
@@ -59,8 +58,6 @@ export default function WeatherDaySearch() {
       ),
       description: response.data.weather[0].description,
       temperature: Math.round(response.data.main.temp),
-      minTemp: Math.round(response.data.main.temp_min),
-      maxTemp: Math.round(response.data.main.temp_max),
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
@@ -88,7 +85,6 @@ export default function WeatherDaySearch() {
               type="search"
               placeholder="Type a city..."
               className="form-control"
-              autocomplete="off"
               onChange={updateCity}
             />
           </div>
@@ -131,13 +127,6 @@ export default function WeatherDaySearch() {
             <WeatherTemperature celsius={weather.temperature} />
           </div>
           <ul className="today-description">
-            <li>
-              Min:
-              <span className="minTemp">{weather.minTemp}</span>°
-            </li>
-            <li>
-              Max: <span className="maxTemp">{weather.maxTemp}</span>°
-            </li>
             <li>
               Humidity:<span className="humidity">{weather.humidity}</span>%
             </li>

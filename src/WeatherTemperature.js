@@ -1,35 +1,36 @@
 import React, { useState } from "react";
 
 export default function WeatherTemperature(props) {
-  const [units, setUnits] = useState("celsius");
+  let setUnits = props.setUnits;
+  let units = props.units;
 
   function showFahrenheit(event) {
     event.preventDefault();
-    setUnits("fahrenheit");
+    setUnits("imperial");
   }
 
   function showCelsius(event) {
     event.preventDefault();
-    setUnits("celsius");
+    setUnits("metric");
   }
 
   function fahrenheit() {
-    return (props.celsius * 9) / 5 + 32;
+    return (props.temperature * 9) / 5 + 32;
   }
 
-  if (units === "celsius") {
+  if (units === "metric") {
     return (
       <div>
-        <span className="tempNumber">{props.celsius}</span>
+        <span className="tempNumber">{props.temperature}</span>
         <span className="tempUnit">
           {" "}
-          <a href="/" className="active">
+          <a href="#" className="active">
             °C |
           </a>
         </span>
         <span className="tempUnit">
           {" "}
-          <a href="/" onClick={showFahrenheit}>
+          <a href="#" onClick={showFahrenheit}>
             °F
           </a>
         </span>
@@ -38,16 +39,16 @@ export default function WeatherTemperature(props) {
   } else {
     return (
       <div>
-        <span className="tempNumber">{fahrenheit()}</span>
+        <span className="tempNumber">{props.temperature}</span>
         <span className="tempUnit">
           {" "}
-          <a href="/" onClick={showCelsius}>
+          <a href="#" onClick={showCelsius}>
             °C
           </a>
         </span>
         <span className="tempUnit">
           {" "}
-          <a href="/" className="active">
+          <a href="#" className="active">
             | °F
           </a>
         </span>

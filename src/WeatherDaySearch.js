@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./WeatherDaySearch.css";
 import WeatherTemperature from "./WeatherTemperature";
 import axios from "axios";
@@ -15,6 +15,7 @@ import sun from "./images/sun.png";
 import thunderstorm from "./images/thunderstorm.png";
 
 export default function WeatherDaySearch() {
+  const [units, setUnits] = useState("metric");
   const [city, setCity] = useState("");
   const [loaded, setLoaded] = useState(false);
   const [weather, setWeather] = useState(null);
@@ -69,8 +70,19 @@ export default function WeatherDaySearch() {
 
   function handleSubmit(event) {
     event.preventDefault();
+    fetchWeatherInfo();
+  }
+
+  useEffect(
+    function () {
+      fetchWeatherInfo();
+    },
+    [units]
+  );
+
+  function fetchWeatherInfo() {
     let apiKey = `c7cd54d7f273febb5e037c3f52d9dfdb`;
-    let units = `metric`;
+    //let units = `metric`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(displayWeather);
   }
@@ -88,7 +100,6 @@ export default function WeatherDaySearch() {
               type="search"
               placeholder="Type a city..."
               className="form-control"
-              autocomplete="off"
               onChange={updateCity}
             />
           </div>
@@ -128,7 +139,12 @@ export default function WeatherDaySearch() {
             </li>
           </ul>
           <div className="today-temperature">
-            <WeatherTemperature celsius={weather.temperature} />
+            units: {units}
+            <WeatherTemperature
+              temperature={weather.temperature}
+              units={units}
+              setUnits={setUnits}
+            />
           </div>
           <ul className="today-description">
             <li>

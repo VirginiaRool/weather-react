@@ -67,12 +67,13 @@
 }
 
 .Weather .tempUnit {
-  font-size: 24px;
+  font-size: 18px;
   position: relative;
   top: -24px;
 }
 
 .Weather .tempUnit .active {
+  font-size: 24px;
   cursor: default;
   color: #362a67;
   font-weight: bold;

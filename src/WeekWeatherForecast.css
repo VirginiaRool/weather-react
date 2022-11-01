@@ -1,0 +1,11 @@
+.WeekWeatherForecast {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.WeekWeatherForecast-day,
+.WeekWeatherForecast-minTemp,
+.WeekWeatherForecast-icon {
+  margin-left: 7px;
+  opacity: 0.7;
+}

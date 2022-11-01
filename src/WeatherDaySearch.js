@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import "./WeatherDaySearch.css";
 import WeatherTemperature from "./WeatherTemperature";
+import WeekWeatherForecast from "./WeekWeatherForecast";
 import axios from "axios";
 
 import brokenClouds from "./images/brokenClouds.png";
 import fewClouds from "./images/fewClouds.png";
-import halfMoon from "./images/halfMoon.png";
+import fewCloudsNight from "./images/fewCloudsNight.png";
+import clearNight from "./images/clearNight.png";
 import mist from "./images/mist.png";
 import rain from "./images/rain.png";
 import scatteredClouds from "./images/scatteredClouds.png";
 import showerRainDrizzle from "./images/showerRain-drizzle.png";
 import snow from "./images/snow.png";
-import sun from "./images/sun.png";
+import clearDay from "./images/clearDay.png";
 import thunderstorm from "./images/thunderstorm.png";
 
 export default function WeatherDaySearch() {
@@ -26,10 +28,10 @@ export default function WeatherDaySearch() {
   };
 
   let iconMatching = {
-    "01d": sun,
-    "01n": halfMoon,
+    "01d": clearDay,
+    "01n": clearNight,
     "02d": fewClouds,
-    "02n": fewClouds,
+    "02n": fewCloudsNight,
     "03d": scatteredClouds,
     "03n": scatteredClouds,
     "04d": brokenClouds,
@@ -61,6 +63,7 @@ export default function WeatherDaySearch() {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
+      coordinates: response.data.coord,
     });
   }
 
@@ -134,7 +137,12 @@ export default function WeatherDaySearch() {
               Wind:<span className="wind">{weather.wind}</span>
             </li>
           </ul>
-          <div className="week-forecast text-center"></div>
+
+          <WeekWeatherForecast
+            icon={iconMatching[weather.icon]}
+            coordinates={weather.coordinates}
+          />
+
           <div className="footer">
             <a
               href="https://github.com/VirginiaRool/weather-react"

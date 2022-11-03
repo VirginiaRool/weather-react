@@ -5,7 +5,7 @@ import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeekWeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
-  let [forecast, setForecast] = useState(null);
+  let [forecast, setForecast] = useState([]);
 
   function handleResponse(response) {
     setLoaded(true);
@@ -24,13 +24,21 @@ export default function WeekWeatherForecast(props) {
   }
 
   if (loaded) {
-    <div className="WeekWeatherForecast">
-      <div className="row">
-        <div className="col">
-          <WeatherForecastDay dayData={forecast[0]} />
+    return (
+      <div className="WeekWeatherForecast">
+        <div className="row">
+          {forecast.map(function (dailyForecast, index) {
+            if (index < 4) {
+              return (
+                <div className="col" key={index}>
+                  <WeatherForecastDay data={dailyForecast} />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
-    </div>;
+    );
   } else {
     fetchForecast();
     return null;

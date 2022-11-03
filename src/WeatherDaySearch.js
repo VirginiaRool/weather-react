@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./WeatherDaySearch.css";
 import WeatherTemperature from "./WeatherTemperature";
 import WeekWeatherForecast from "./WeekWeatherForecast";
+import WeatherForecastDay from "./WeatherForecastDay";
 import axios from "axios";
 
 import brokenClouds from "./images/brokenClouds.png";

@@ -1,5 +1,4 @@
 import React from "react";
-import WeekWeatherForecast from "./WeekWeatherForecast";
 
 export default function WeatherForecastDay(props) {
   function maxTemperature() {
@@ -14,18 +13,18 @@ export default function WeatherForecastDay(props) {
 
   function day() {
     let date = new Date(props.data.dt * 1000);
-    day = date.getDate();
+    let day = date.getDate();
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     return days[day];
   }
 
   return (
     <div>
-      <div className="WeekWeatherForecast-day">{day}</div>
+      <div className="WeekWeatherForecast-day">{day()}</div>
       <img
         className="WeekWeatherForecast-icon"
-        src={props.icon}
-        alt={"icon description"}
+        src={props.data.weather[0].icon}
+        alt={props.data.weather[0].description}
         width="40"
       />
       <div className="WeekWeatherForecast-temperatures">

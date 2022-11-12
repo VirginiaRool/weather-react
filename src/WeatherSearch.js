@@ -132,10 +132,10 @@ export default function WeatherDaySearch() {
           </div>
           <ul className="today-description">
             <li>
-              Humidity:<span className="humidity">{weather.humidity}</span>%
+              Humidity: <span className="humidity">{weather.humidity}</span>%
             </li>
             <li>
-              Wind:<span className="wind">{weather.wind}</span>
+              Wind: <span className="wind">{weather.wind}</span> metre/sec
             </li>
           </ul>
 

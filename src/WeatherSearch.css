@@ -47,9 +47,9 @@
 .Weather .today-icon {
   display: block;
   margin: 0 auto;
-  max-width: 50%;
-  padding-top: 20px;
-  padding-bottom: 15px;
+  max-width: 40%;
+  padding-top: 10px;
+  padding-bottom: 7px;
 }
 
 .Weather .today-temperature {
@@ -57,7 +57,7 @@
 }
 
 .Weather .tempNumber {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
 }
 
@@ -85,8 +85,8 @@
 }
 
 .Weather ul.today-description {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding-left: 0;
   font-weight: 500;
 }

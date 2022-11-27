@@ -69,7 +69,6 @@ export default function WeatherDaySearch() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    /* let apiKey = `c7cd54d7f273febb5e037c3f52d9dfdb`; */
     let apiKey = `f2e3d38273afc6616506d901253c8457`;
     let units = `metric`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
@@ -145,14 +144,24 @@ export default function WeatherDaySearch() {
           />
 
           <div className="footer">
+            Open source code on
             <a
               href="https://github.com/VirginiaRool/weather-react"
               target="_blank"
               rel="noreferrer"
             >
-              Open source code
-            </a>{" "}
-            by Virginia Romero
+              {" "}
+              Github{" "}
+            </a>
+            by
+            <a
+              href="https://unruffled-archimedes-fea2bd.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+              Virginia Romero
+            </a>
           </div>
         </div>
       </div>

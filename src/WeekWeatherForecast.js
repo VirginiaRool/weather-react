@@ -17,7 +17,6 @@ export default function WeekWeatherForecast(props) {
   }
 
   function fetchForecast() {
-    // let apiKey = "c7cd54d7f273febb5e037c3f52d9dfdb";
     let apiKey = "f2e3d38273afc6616506d901253c8457";
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;

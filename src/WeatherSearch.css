@@ -56,34 +56,6 @@
   margin: 0px;
 }
 
-.Weather .tempNumber {
-  font-size: 50px;
-  font-weight: bold;
-}
-
-.Weather a {
-  text-decoration: none;
-  color: grey;
-}
-
-.Weather .tempUnit {
-  font-size: 18px;
-  position: relative;
-  top: -24px;
-}
-
-.Weather .tempUnit .active {
-  font-size: 24px;
-  cursor: default;
-  color: #362a67;
-  font-weight: bold;
-}
-
-.Weather .tempUnit a:hover {
-  color: #362a67;
-  text-decoration: none;
-}
-
 .Weather ul.today-description {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -99,4 +71,9 @@
 
 .Weather .footer a {
   color: #962071;
+}
+
+.Weather .footer a:hover {
+  color: #5946a8;
+  text-decoration: none;
 }

@@ -81,6 +81,7 @@ export default function WeatherDaySearch() {
 
   let form = (
     <div>
+      <div className="whatCity">What city forecast do you want to look up?</div>
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-9">
@@ -106,7 +107,7 @@ export default function WeatherDaySearch() {
   if (loaded) {
     return (
       <div className="Weather">
-        <div className="container container-weather text-center">
+        <div className="text-center">
           {form}
           <div className="cityAndCountry">
             <span className="city">{weather.city}</span>{" "}
@@ -142,34 +143,13 @@ export default function WeatherDaySearch() {
             icon={iconMatching[weather.icon]}
             coordinates={weather.coordinates}
           />
-
-          <div className="footer">
-            Open source code on
-            <a
-              href="https://github.com/VirginiaRool/weather-react"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {" "}
-              Github{" "}
-            </a>
-            by
-            <a
-              href="https://unruffled-archimedes-fea2bd.netlify.app/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {" "}
-              Virginia Romero
-            </a>
-          </div>
         </div>
       </div>
     );
   } else {
     return (
       <div className="Weather">
-        <div className="container container-weather text-center">{form}</div>
+        <div className="text-center">{form}</div>
       </div>
     );
   }
